@@ -36,6 +36,7 @@ class NewVisitorTest(unittest.TestCase):
 	# The page updates again and now shows both items on her list
 
 
+
 	# Christa wonders wheter the site will rememer her list. The she sees that the site has generated a unique URL for her
 
 
