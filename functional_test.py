@@ -6,7 +6,7 @@ class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(3)
+        self.browser.implicitly_wait(2)
 
     def tearDown(self):
         # Satisfied she goes back to sleep
@@ -30,11 +30,11 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys('Buy photo album')
 
 	    # When she hits enter the page updates and now the page lists "1:Make photo album Luca" as an item in a to-do list
-        inputbox.send_keys(Keys.Enter)
+        inputbox.send_keys(Keys.ENTER)
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.text == '1: Buy photo album' for row in rows))
+        self.assertTrue(any(row.text == '1: Buy photo album' for row in rows), "todo item didn't appear in table")
 
 	    # There is still a textox inviting her to add another item. She enters "Make another photo album" 
         self.fail('Finish the test!')
