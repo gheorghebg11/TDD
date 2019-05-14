@@ -38,20 +38,20 @@ class NewVisitorTest(unittest.TestCase):
 
 
 	    # She types "Buy photo album" into a text box
-        inputbox.send_keys('Buy photo album')
+        inputbox.send_keys('Make photo album')
 	    
-        # When she hits enter the page updates and now the page lists "1:Buy photo album" as an item in a to-do list
+        # When she hits enter the page updates and now the page lists "1:Make photo album" as an item in a to-do list
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        
+
         self.check_for_row_in_list_table('1: Make photo album')
 
 
-        # She types "Buy another photo album" into a text box
+        # She types "Make another photo album" into a text box
         inputbox = self.browser.find_element_by_id('id_new_item')
-        inputbox.send_keys('Buy another photo album')
+        inputbox.send_keys('Make another photo album')
 
-	    # When she hits enter the page updates and now the page lists "1:Buy another photo album" as an item in a to-do list
+	    # When she hits enter the page updates and now the page lists "1:Make another photo album" as an item in a to-do list
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
         
@@ -61,14 +61,14 @@ class NewVisitorTest(unittest.TestCase):
 	    # There is still a textox inviting her to add another item. She enters "Make another photo album" 
         self.fail('Finish the test!')
 
-	# The page updates again and now shows both items on her list
+    	# The page updates again and now shows both items on her list
 
 
 
-	# Christa wonders wheter the site will rememer her list. The she sees that the site has generated a unique URL for her
+	    # Christa wonders wheter the site will rememer her list. The she sees that the site has generated a unique URL for her
 
 
-	# She visits that URL - the to-do list is still there!
+    	# She visits that URL - the to-do list is still there!
 
 if __name__ == '__main__':
     unittest.main() #warnings ='ignore')
