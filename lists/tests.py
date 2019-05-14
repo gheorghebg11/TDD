@@ -7,8 +7,6 @@ from django.shortcuts import render
 
 from lists.views import home_page
 
-# Create your tests here.
-
 class HomePageTest(TestCase):
     def test_root_url_resolves_to_home_page_view(self):
         found = resolve('/')
@@ -32,3 +30,22 @@ class HomePageTest(TestCase):
         response = home_page(request)
 
         self.assertIn('A new list item', response.content.decode())
+
+from lists.models import Item
+
+class ItemModelTest(TestCase):
+    def test_saving_and_retrieving_items(self):
+        first_item = Item()
+        first_item.text = 'The first (ever) list item'
+        first_item.save()
+
+        second_item = Item()
+        second_item.text = 'Item the second'
+        second_item.save()
+
+        saved_items = Item.objects.all()
+        self.assertEqual(saved_items.count(), 2)
+
+        self.assertEqual(saved_items[0].text, 'The first (ever) list item')
+        self.assertEqual(saved_items[1].text, 'Item the second')
+        

@@ -351,3 +351,10 @@ JavaScript error: resource://gre/modules/Sqlite.jsm, line 834: Error: Connection
 1557826371307	Marionette	INFO	Listening on port 41527
 1557826371364	Marionette	WARN	TLS certificate errors will be ignored for this session
 1557826372674	Marionette	INFO	Stopped listening on port 41527
+1557826390154	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3Efw4h5D4Rye"
+1557826390522	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557826390522	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557826390523	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557826391683	Marionette	INFO	Listening on port 35719
+1557826391764	Marionette	WARN	TLS certificate errors will be ignored for this session
+1557826393152	Marionette	INFO	Stopped listening on port 35719
