@@ -63,10 +63,10 @@ class NewVisitorTest(LiveServerTestCase):
         # Now a new user, Bogdan, comes along to the site
         ## we use a new browser session to make sure that no info is shared through coookies, etc        
         self.browser.quit()
-        self.browser.webdriver.Firefox()
+        self.browser = webdriver.Firefox()
 
         # Bogdan visits the homepage, there is no sign of Christa's list
-        self.browser.get(self.live_server_ur)
+        self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Make photo album', page_text)
         
@@ -74,6 +74,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
+        time.sleep(0.5)
 
         # Bogdan gets his own unique UrL
         bogdan_list_url = self.browser.current_url
