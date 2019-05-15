@@ -4,9 +4,10 @@ from selenium.webdriver.common.keys import Keys
 import unittest
 import time
 	
-from django.test import LiveServerTestCase
+#from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -21,7 +22,7 @@ class NewVisitorTest(LiveServerTestCase):
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text,  [row.text for row in rows], "todo item didn't appear in table, text was: \n%s" %table.text)
 
-    def old_test_can_start_a_list_and_retrieve_it_later(self):
+    def test_can_start_a_list_and_retrieve_it_later(self):
 	    # Christa heard about a cool new page, she goes and check it out!
         #self.browser.get('http://localhost:8000')
         self.browser.get(self.live_server_url)
@@ -89,7 +90,7 @@ class NewVisitorTest(LiveServerTestCase):
         # Satisfied they both go back to sleep
 
     
-'''    def test_layout_and_styling(self):
+    def test_layout_and_styling(self):
         # Christa goes to the homepage
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
@@ -101,7 +102,7 @@ class NewVisitorTest(LiveServerTestCase):
         # She starts a new list and sees that the iput is nicely centered there too
         inputbox.send_keys('testing\n')
         inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5)'''
+        self.assertAlmostEqual(inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5)
 
 
 
