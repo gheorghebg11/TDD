@@ -16,7 +16,7 @@ class ItemValidationTest(FunctionalTest):
         self.browser.get(self.server_url)
         self.browser.find_element_by_id('id_new_item').send_keys('')
         self.browser.find_element_by_id('id_new_item').send_keys(Keys.ENTER)
-        time.sleep(1)        
+#        time.sleep(1)        
 
         # The home page refreshes and there is a an error message saying that the list cannot be blank
         error = self.browser.find_element_by_css_selector('.has-error')
